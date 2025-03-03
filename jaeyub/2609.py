@@ -1,6 +1,14 @@
-import math
+# 최대공약수 함수
+def gcd(x,y):
+	if(y == 0):
+		return x
+	else:
+		return gcd(y, x%y)
 
 x,y = map(int,input().split())
 
-print(math.gcd(x,y))
-print(math.lcm(x,y))
+gcd = gcd(x,y)
+lcm = x*y / gcd
+
+print(gcd)
+print(int(lcm))
