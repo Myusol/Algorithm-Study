@@ -1,4 +1,5 @@
 a, b = map(int, input().split())
+
 # 최대공약수 구하기
 # 각 수의 약수를 구해서 공통된 가장 높은 수를 구할것
 def gcd_math(a, b):
@@ -9,6 +10,7 @@ def gcd_math(a, b):
     return max_common
 
 gcd = gcd_math(a, b)
+
 # 최소공배수 구하기
 # 각 수의 배수를 구해서 공통된 가장 작은 수를 구할것
 def lcm_math(a, b):
