@@ -1,20 +1,21 @@
-def is_prime(x):
-    for i in range(2,x):
-        if x%i==0:
-            return False
-    return True
+# 에라토스테네스의 체
+num = 123456 * 2
+a = [0,0] + [1] * (num-1)
 
-num_list = []
+
+for i in range(2,num+1):
+    if a[i]:
+        # primes.append(i)
+        for j in range(2*i, num+1,i):
+            a[j]= 0
+
+num_list=[]
 
 while(True):
-    n = int(input())
-    if n==0:
-        break
-    num_list.append(n)
+    x = int(input())
+    if (x==0): break
+    num_list.append(x)
 
 for i in num_list:
-    prime = 0
-    for j in range(i+1,2*i+1):
-        if is_prime(j):
-            prime +=1
-    print(prime)
+    print(sum(a[i+1:i*2+1]))
+
