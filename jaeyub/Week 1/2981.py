@@ -9,6 +9,8 @@ for i in range(1,N):
     diff = num_list[N-i] - num_list[N-i-1]
     diff_list.append(diff)
 
+diff_list.sort()
+
 def gcd(x,y):
 	if(y == 0):
 		return x
@@ -17,7 +19,7 @@ def gcd(x,y):
 
 cd = diff_list[0]
 
-for i in range(len(diff_list)-1):
+for i in range(len(diff_list)):
 	cd = gcd(diff_list[i],cd)
 	
 div_list = []
