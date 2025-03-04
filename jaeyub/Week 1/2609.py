@@ -1,4 +1,3 @@
-# 최대공약수 함수 (유클리드 호제법)
 def gcd(x,y):
 	if(y == 0):
 		return x
