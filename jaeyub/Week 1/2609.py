@@ -8,7 +8,10 @@ def gcd(x,y):
 x,y = map(int,input().split())
 
 gcd = gcd(x,y)
-lcm = x*y / gcd
+lcm = x*y // gcd
 
 print(gcd)
-print(int(lcm))
+print(lcm)
+
+
+
