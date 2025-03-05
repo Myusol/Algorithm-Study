@@ -16,5 +16,3 @@ while True:
             count += 1
 
     print(count)
-
-#시간초과..
