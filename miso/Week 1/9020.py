@@ -5,19 +5,17 @@
 n = 10000
 eratos = [1] * 10001
 eratos[0] = eratos[1] = 0
-prime = []
 
 for i in range(2, n+1):
     if eratos[i]:
-        prime.append(i)
         for j in range(2*i, n+1, i):
             eratos[j] = 0
             
 def gold(a):
     b = a // 2
     for i in range (b):
-        if (b-i) in prime and (b+i) in prime:
-            print((b-i), (b+i))
+        if eratos[b-i] and eratos[b+i]:
+            print(b-i, b+i)
             return
 
 x = int(input())
