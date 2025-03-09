@@ -7,17 +7,15 @@ cnt=0
 def seq_sum(idx, ssum) :
     global cnt
     
-    if idx >= n:
+    if idx == n:
         return
     
-    ssum += seq[idx]
-    
-    if ssum == s:
+    if ssum+seq[idx] == s:
         cnt += 1
     
-    seq_sum(idx+1, ssum)
+    seq_sum(idx+1, ssum+seq[idx])
     
-    seq_sum(idx+1, ssum-seq[idx])
+    seq_sum(idx+1, ssum)
      
 seq_sum(0,0)
 print(cnt)
