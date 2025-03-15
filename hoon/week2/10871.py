@@ -4,4 +4,4 @@ numss=[]
 for i in range(a):
     if b > nums[i]:
         numss.append(nums[i])
-print(*numss) 
+print(*numss)
