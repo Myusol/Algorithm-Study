@@ -1,5 +1,5 @@
 lis=[]
-max_val = -float('inf')
+max_val = -float('inf') # 음수 무한대
 max_pos = (0, 0)
 for _ in range(9):
     z = list(map(int,input().split()))
