@@ -35,3 +35,4 @@ for _ in range(a):
             result.append(-1)
         else:
             result.append(stack[-1])
+sys.stdout.write('\n'.join(map(str,result)))
