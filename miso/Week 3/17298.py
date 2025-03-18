@@ -1,3 +1,22 @@
+# 유효성 변수를 활용해 오큰수를 발견하면 리스트에 추가하고, 발견하지 못하면 -1
+import sys
+n=int(input())
+list=list(map(int,sys.stdin.readline().split()))
+stack=[]
+for i in range(n):
+    found=False
+    for j in range(i+1,n):
+        if list[i]<list[j]:
+            stack.append(list[j])
+            found=True
+            break
+    if not found:
+        stack.append(-1)
+print(*stack)
+
+#######
+
+# 블로그 참고
 import sys
 n=int(input())
 list=list(map(int,sys.stdin.readline().split()))
