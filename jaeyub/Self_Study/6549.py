@@ -16,7 +16,7 @@ while True:
             if stack[-1][1] <= histogram[i]:
                 stack.append((i, histogram[i]))
             else:
-                while len(stack) > 0 and stack[-1][1] > histogram[i]:
+                while stack and stack[-1][1] > histogram[i]:
                     remove = stack.pop()
                     if len(stack) == 0:
                         width = i - 1
