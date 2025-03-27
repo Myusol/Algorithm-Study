@@ -5,7 +5,7 @@
 import sys
 input = sys.stdin.readline
 def kan(n):
-    if n == 0:
+    if n == 0: # 이땐 규칙없이 그냥 출력
         return '-'
     prev = kan(n-1)
     return prev + ' ' * len(prev) + prev
