@@ -5,7 +5,7 @@ input = sys.stdin.readline
 n = int(input())
 def hano(n, start, end, aux, moves):
     if n==1: # n이 1이면 바로 이동
-        moves.append((start,end))
+        moves.append((start,end)) # [()] 이렇게 리스트안에 튜플로 저장돼서 읽어올때 편함
     else:
         hano(n-1,start,aux,end,moves) # n-1개 원판을 보조로 이동
         moves.append((start,end)) # 가장 큰 원판을 도착지로 이동
@@ -14,4 +14,4 @@ moves = [] # 이동경로 저장
 hano(n,1,3,2,moves)
 print(len(moves)) # 총 이동 횟수
 for move in moves: # 이동을 어디서 어디로 이동했는지 출력
-    print(move[0],move[1])
+    print(move[0],move[1]) # 리스트안에 튜플 1,2를 각 출력
