@@ -1,5 +1,7 @@
 # DFS와 BFS / 실버2
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 def dfs(graph, v, visited):
     visited[v] = True
