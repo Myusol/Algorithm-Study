@@ -5,14 +5,10 @@ n = int(input().strip())
 stack = []
 for _ in range(n):
     data = list(map(int, input().strip().split()))
-
     if data[0] == 1:
         stack.append(data[1])
     elif data[0] == 2:
-        if stack:
-            print(stack.pop())
-        else:
-            print(0)
+        print(stack.pop() if stack else -1)
     elif data[0] == 3:
         print(len(stack))
     elif data[0] == 4:
