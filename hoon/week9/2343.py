@@ -1,4 +1,6 @@
 # 기타 레슨 / 실버1
+import sys
+input = sys.stdin.readline
 def is_possible(lectures, m, size):
     count = 1
     total = 0
