@@ -1,5 +1,4 @@
 # 낚시왕 / 골드1 / 개선 버전
-# 낚시왕 / 골드1
 import sys
 input = sys.stdin.readline
 R,C,M = map(int, sys.stdin.readline().split()) # 세로 가로 상어의 수
@@ -35,7 +34,7 @@ for i in range(C): # 격자판 가로 만큼 반복
         j, k, s, d, z = shark.pop()
         nj, nk, nd = j, k, d
         if d == 1 or d == 2:  # 위 아래로 움직이는 상어는
-            move = s % ((R-1)*2) # 세
+            move = s % ((R-1)*2) # 칸의 최대 범위((R-1)*2) 를 나누고 나머지만큼 이동하면 됨
             for _ in range(move):
                 if nd == 1 and nj == 0: # 위쪽 끝에 도달하면 방향 아래로
                     nd = 2
@@ -51,8 +50,6 @@ for i in range(C): # 격자판 가로 만큼 반복
                     nd = 4
                 nk += dy[nd-1]
         pan[nj][nk].append([s, nd, z]) # 다시 원래대로 저장
-
-
     # 같은 자리에 있는 상어 잡아먹기
     for j in range(R):
         for k in range(C):
