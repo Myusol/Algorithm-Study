@@ -38,6 +38,7 @@ for i in range(C): # 격자판 가로 만큼 반복
             if d == 1:  # 위로 이동
                 if move <= j:
                     nj = j - move
+
                     nd = 1
                 else:
                     move -= j
