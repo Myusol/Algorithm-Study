@@ -1,4 +1,6 @@
 # List of Unique Numbers / 골드4
+import sys
+input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().split()))
 count = [0] * 100001
