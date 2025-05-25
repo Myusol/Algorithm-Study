@@ -21,8 +21,6 @@ while True:
         start += 1
     elif end == len(prime):
         break
-    elif prime[end] > N:
-        break
     else:
         total += prime[end]
         end += 1
