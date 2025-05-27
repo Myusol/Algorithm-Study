@@ -32,24 +32,64 @@ for i in range(C): # 격자판 가로 만큼 반복
                 shark.append([j,k,s,d,z]) # pan에 있던 상어 정보를 shark 리스트에 임시로 저장
     while shark:
         j, k, s, d, z = shark.pop()
-        nj, nk, nd = j, k, d
-        if d == 1 or d == 2:  # 위 아래로 움직이는 상어는
-            move = s % ((R-1)*2) # 칸의 최대 범위((R-1)*2) 를 나누고 나머지만큼 이동하면 됨
-            for _ in range(move):
-                if nd == 1 and nj == 0: # 위쪽 끝에 도달하면 방향 아래로
-                    nd = 2
-                elif nd == 2 and nj == R-1: # 아래 끝 도달하면 위로
+        if d == 1 or d == 2:  # 위/아래 이동
+            cycle = (R-1)*2
+            move = s % cycle
+            if d == 1:  # 위로 이동
+                if move <= j:
+                    nj = j - move
+
                     nd = 1
-                nj += dx[nd-1] # 한칸 이동
-        else:  # 그외 즉 오른쪽 왼쪽
-            move = s % ((C-1)*2)
-            for _ in range(move):
-                if nd == 4 and nk == 0: # 왼쪽 끝에 도달하면 오른쪽
-                    nd = 3
-                elif nd == 3 and nk == C-1: # 오른쪽 끝에 도달하면 왼쪽
+                else:
+                    move -= j
+                    if move <= R-1:
+                        nj = move
+                        nd = 2
+                    else:
+                        nj = 2*(R-1) - move
+                        nd = 1
+            else:  # 아래로 이동
+                if move <= R-1-j:
+                    nj = j + move
+                    nd = 2
+                else:
+                    move -= (R-1-j)
+                    if move <= R-1:
+                        nj = R-1 - move
+                        nd = 1
+                    else:
+                        nj = move - (R-1)
+                        nd = 2
+            nk = k
+        else:  # 오른쪽/왼쪽 이동
+            cycle = (C-1)*2
+            move = s % cycle
+            if d == 4:  # 왼쪽
+                if move <= k:
+                    nk = k - move
                     nd = 4
-                nk += dy[nd-1]
-        pan[nj][nk].append([s, nd, z]) # 다시 원래대로 저장
+                else:
+                    move -= k
+                    if move <= C-1:
+                        nk = move
+                        nd = 3
+                    else:
+                        nk = 2*(C-1) - move
+                        nd = 4
+            else:  # 오른쪽
+                if move <= C-1-k:
+                    nk = k + move
+                    nd = 3
+                else:
+                    move -= (C-1-k)
+                    if move <= C-1:
+                        nk = C-1 - move
+                        nd = 4
+                    else:
+                        nk = move - (C-1)
+                        nd = 3
+            nj = j
+        pan[nj][nk].append([s, nd, z])
     # 같은 자리에 있는 상어 잡아먹기
     for j in range(R):
         for k in range(C):
